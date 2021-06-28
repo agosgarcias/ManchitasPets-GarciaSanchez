@@ -1,5 +1,6 @@
 import React from 'react'
 import CartWidget from './CartWidget'
+import IconCarrito from './IconCarrito'
 
 function NavBar(){
     return (
@@ -7,6 +8,7 @@ function NavBar(){
             <CartWidget />
             <h1>¡BIENVENIDOS!</h1>
             <h2>Somos Manchitas Pets!</h2>
+            <IconCarrito />
         <nav className="Nav">
             <ul className="Menu">
                 <li>Productos</li>

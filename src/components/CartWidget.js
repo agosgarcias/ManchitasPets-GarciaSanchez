@@ -5,6 +5,8 @@ import "./style.css"
 
 export default function CartWidget(){
     return (
+        <>
         <img src={logo} alt="logo" className="logo" />
+        </>
     )
 } 
