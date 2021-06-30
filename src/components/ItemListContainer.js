@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import ItemCount from './ItemCount';
+import ItemList from './ItemList';
 import "./style.css";
 
 const DataList = [{
@@ -12,7 +13,7 @@ const DataList = [{
         colchon: "loneta con base de fiselina", 
         forma: "rectangular", 
         relleno: "goma espuma de alta densidad", 
-        tamaño: "50x60cm"
+        medidas: "50x60cm"
     }
     },
     {
@@ -25,7 +26,7 @@ const DataList = [{
         colchon: "loneta con base de fiselina", 
         forma: "rectangular", 
         relleno: "goma espuma de alta densidad", 
-        tamaño: "60x70cm"
+        medidas: "60x70cm"
     }},
         {
     id: 3,
@@ -37,7 +38,7 @@ const DataList = [{
         colchon: "loneta con base de fiselina", 
         forma: "rectangular", 
         relleno: "goma espuma de alta densidad", 
-        tamaño: "50x60cm"
+        medidas: "50x60cm"
     }},
     {
     id: 4,
@@ -49,24 +50,42 @@ const DataList = [{
         colchon: "loneta con base de fiselina", 
         forma: "rectangular", 
         relleno: "goma espuma de alta densidad", 
-        tamaño: "60x70cm",
+        medidas: "60x70cm",
     },
     },
 ]
 export default function ItemListContainer() {
-    const [referens, setReferens] = useState(DataList);
+    const [referens, setReferens] = useState([]);
+
+    useEffect(() => {
+        new Promise ((resolve, reject)=> {
+        setTimeout(resolve(DataList), 2000)
+    })
+    .then((referensOk) => {
+        setReferens(referensOk)
+    })
+    .catch((reject) =>
+    console.log('Error en la toma de datos')
+    )
+}, [])
 
     return (
+        <>
         <div>{referens.map((item) => 
             <div className="card">
                 <div className="card-body">
                     <h1 className="card-title">{item.producto}</h1>
-                    <p>{item.descripcion.colchon} {item.descripcion.forma} {item.descripcion.tamaño} </p>
+                    <p>{item.descripcion.colchon} {item.descripcion.forma} {item.descripcion.medidas} </p>
                     <ItemCount stock={item.stock}/>
                 </div>
             </div>)
-            }
+        }
         </div>
+        <div>{referens.map((item) => 
+            <ItemList {...item}/>
+        )}
+        </div>
+        </>
         )
 }
 
