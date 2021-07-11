@@ -1,14 +1,15 @@
 import React from 'react'
 
 
-export default function Item (producto, size, colchon, forma, medidas) {
+function Item ({producto, size, descripcion}) {
     return (
         <div className="card">
             <div className="card-body">
                 <h1 className="card-title">{producto}</h1>
-                <p>{colchon} {size} {forma} {medidas}</p>
+                <p>{size}</p>
             </div>
         </div>
     )
 
 }
+export default Item

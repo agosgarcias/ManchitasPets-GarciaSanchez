@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import ItemCount from './ItemCount';
 import ItemList from './ItemList';
 import "./style.css";
 
@@ -61,8 +60,8 @@ export default function ItemListContainer() {
         new Promise ((resolve, reject)=> {
         setTimeout(resolve(DataList), 2000)
     })
-    .then((referensOk) => {
-        setReferens(referensOk)
+    .then((data) => {
+        setReferens(data)
     })
     .catch((reject) =>
     console.log('Error en la toma de datos')
@@ -71,23 +70,35 @@ export default function ItemListContainer() {
 
     return (
         <>
-        <div>{referens.map((item) => 
-            <div className="card">
-                <div className="card-body">
-                    <h1 className="card-title">{item.producto}</h1>
-                    <p>{item.descripcion.colchon} {item.descripcion.forma} {item.descripcion.medidas} </p>
-                    <ItemCount stock={item.stock}/>
-                </div>
-            </div>)
-        }
+        <div>
+            {referens.producto}
         </div>
-        <div>{referens.map((item) => 
-            <ItemList {...item}/>
-        )}
-        </div>
+        <ItemList />
         </>
+ 
         )
 }
 
-/*Falta utilizar el setReferens para cuando querramos agregarlo al carrito*/
-/*Intente usar el spread operator para el item <p> de la descripcion pero no me lo tomaba*/
+
+
+
+/*
+<>
+<div>{referens.map((item) => 
+    <div className="card">
+        <div className="card-body">
+            <h1 className="card-title">{item.producto}</h1>
+            <p>{item.descripcion.colchon} {item.descripcion.forma} {item.descripcion.medidas} </p>
+            <ItemCount stock={item.stock}/>
+        </div>
+    </div>)
+}
+</div>
+<div>{referens.map((item) => 
+    <>
+    <ItemList {...item}/>
+    <ItemCount stock={item.stock}/>
+    </>
+)}
+</div>
+</> */
