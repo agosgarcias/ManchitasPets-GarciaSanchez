@@ -6,7 +6,7 @@ function Item ({producto, size, descripcion}) {
         <div className="card">
             <div className="card-body">
                 <h1 className="card-title">{producto}</h1>
-                <p>{size}</p>
+                <p>tamaño: {size} - colchon: {descripcion.colchon} - {}</p>
             </div>
         </div>
     )

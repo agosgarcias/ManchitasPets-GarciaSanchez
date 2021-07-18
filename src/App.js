@@ -1,17 +1,13 @@
 import './App.css';
 import NavBar from './components/NavBar'
-import ItemListContainer from './components/ItemListContainer'
-import ItemDetailContainer from './components/ItemDetailContainer';
+import ItemListContainer from './pages/ItemListContainer'
+import ItemDetailContainer from './pages/ItemDetailContainer';
 import { CartContext } from './components/cartContext';
 import { useState } from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
 //Pages
 import Cart from './pages/Cart'
-import Contacto from './pages/Contacto'
-import Galeria from './pages/Galeria'
-import Nosotros from './pages/Nosotros'
-import Productos from './pages/Productos'
 
 function App() {
   const[theme, setTheme] = useState({saludo: 'hola'})
@@ -19,31 +15,21 @@ function App() {
   return (
     <>
     <Router>
-    <NavBar/>
       <CartContext.Provider>
       <div className="App">
+          <NavBar/>
+        <main className="App-main">
         <Switch>
-          <Route path="/">
+          <Route exact path="/">
             <ItemListContainer />
           </Route>
-          <Route path="/cart">
-            <Cart />
+          <Route exact path="/category/:id">
+            <ItemListContainer />
           </Route>
-          <Route path="/contacto">
-            <Contacto />
-          </Route>
-          <Route path="/galeria">
-            <Galeria />
-          </Route>
-          <Route path="/nosotros">
-            <Nosotros />
-          </Route>
-          <Route path="/productos">
-            <Productos />
+          <Route exact path="/item/:id">
+            <ItemDetailContainer />
           </Route>
         </Switch>
-        <main className="App-main">
-          <ItemDetailContainer />
         </main>
       </div>
       </CartContext.Provider>

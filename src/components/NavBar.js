@@ -13,11 +13,8 @@ function NavBar(){
         <nav className="Nav">
             <ul className="Menu">
                 <li><Link to="/">Home</Link></li>
-                <li><Link to="/cart">Cart</Link></li>
-                <li><Link to="/productos">Productos</Link></li>
-                <li><Link to="/nosotros">Nosotros</Link></li>
-                <li><Link to="/galeria">Galeria</Link></li>
-                <li><Link to="/contacto">Contacto</Link></li>
+                <li><Link to="/cuchas">Cuchas</Link></li>
+                <li><Link to="/camas">Camas</Link></li>
             </ul>
         </nav>
         </div>

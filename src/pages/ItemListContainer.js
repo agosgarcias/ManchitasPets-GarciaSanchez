@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import ItemList from './ItemList';
-import "./style.css";
+import ItemList from '../components/ItemList'
+import '../components/style.css';
 
 const DataList = [{
     id: 1,
@@ -70,35 +70,10 @@ export default function ItemListContainer() {
 
     return (
         <>
-        <div>
-            {referens.producto}
-        </div>
-        <ItemList />
+        <ItemList lista={referens}/>
         </>
  
         )
 }
 
 
-
-
-/*
-<>
-<div>{referens.map((item) => 
-    <div className="card">
-        <div className="card-body">
-            <h1 className="card-title">{item.producto}</h1>
-            <p>{item.descripcion.colchon} {item.descripcion.forma} {item.descripcion.medidas} </p>
-            <ItemCount stock={item.stock}/>
-        </div>
-    </div>)
-}
-</div>
-<div>{referens.map((item) => 
-    <>
-    <ItemList {...item}/>
-    <ItemCount stock={item.stock}/>
-    </>
-)}
-</div>
-</> */
