@@ -54,15 +54,18 @@ const DataList = [{
     },
     },
 ]
+const promiseFunction = () => {
+    return(
+         new Promise ((resolve, reject)=> {
+        setTimeout(resolve(DataList), 2000)
+    }))
+}
 export default function ItemListContainer() {
     const [referens, setReferens] = useState([]);
     const {categoriaID} = useParams();
 
     useEffect(() => {
-        new Promise ((resolve, reject)=> {
-        setTimeout(resolve(DataList), 2000)
-    })
-    .then((data) => {
+        promiseFunction().then((data) => {
         const filtroCategoria = data.filter(element => element.categoria === categoriaID);
         setReferens(filtroCategoria);
     })

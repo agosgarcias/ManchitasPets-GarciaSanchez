@@ -15,7 +15,7 @@ function ItemDetailContainer() {
 
     useEffect(() => {
         new Promise ((resolve, reject) =>{
-            setTimeout(()=> resolve(productoData), 2000)
+            setTimeout(()=> resolve(productoData), 1000)
         }).then((res) => setProducto(res))
     },[])
     
