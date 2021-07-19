@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from 'react';
+import { useParams } from 'react-router';
 import ItemList from '../components/ItemList'
 import '../components/style.css';
 
 const DataList = [{
     id: 1,
-    producto: "Cucha floreada/futbol",
-    estampa: "si",
+    categoria: "estampados",
+    producto: "Colchon estampado",
     size: "chico" ,
     stock: 30,
     descripcion: {
@@ -17,8 +18,8 @@ const DataList = [{
     },
     {
     id: 2,
-    producto: "Cucha lisa",
-    estampa: "si",
+    categoria: "estampados",
+    producto: "Colchon estampado",
     size: "grande",
     stock: 40, 
     descripcion: {
@@ -29,8 +30,8 @@ const DataList = [{
     }},
         {
     id: 3,
-    producto: "Cucha floreada/futbol",
-    estampa: "no",
+    categoria: "lisos",
+    producto: "Cucha lisa",
     size: "chico",
     stock: 20, 
     descripcion: {
@@ -41,8 +42,8 @@ const DataList = [{
     }},
     {
     id: 4,
+    categoria: "lisos",
     producto: "Cucha lisa",
-    estampa: "no",
     size: "grande",
     stock: 25,
     descripcion: {
@@ -55,18 +56,17 @@ const DataList = [{
 ]
 export default function ItemListContainer() {
     const [referens, setReferens] = useState([]);
+    const {categoriaID} = useParams();
 
     useEffect(() => {
         new Promise ((resolve, reject)=> {
         setTimeout(resolve(DataList), 2000)
     })
     .then((data) => {
-        setReferens(data)
+        const filtroCategoria = data.filter(element => element.categoria === categoriaID);
+        setReferens(filtroCategoria);
     })
-    .catch((reject) =>
-    console.log('Error en la toma de datos')
-    )
-}, [])
+}, [categoriaID])
 
     return (
         <>

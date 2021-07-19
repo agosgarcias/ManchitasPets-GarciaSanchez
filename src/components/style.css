@@ -1,12 +1,36 @@
 
-/*Estilo del Logo*/
+/*----- HOME ------*/
 
 .logo{
     width: 5em;
     height: 5em;
 }
 
+/*----- NAVBAR ------*/
+.Encabezado{
+    display: grid;
+    grid-template-areas: 
+            "logo titulos carrito";
+    grid-template-columns: repeat(3, 1fr);
+}
+.logo{
+    grid-area: "logo";
+}
+.Titulo{
+    grid-area: "titulos";
+
+}
+.cartWidget{
+    grid-area: "carrito";
+    width: 3em;
+    height: 3em;
+}
+
+
+/*----- ITEM DETAIL ------*/
 .FotoProducto{
     width: 15em;
     height: 15em;
 }
+
+

@@ -1,4 +1,3 @@
-import { promises } from 'fs';
 import React, {useState, useEffect} from 'react';
 import ItemDetail from '../components/ItemDetail'
 
@@ -8,6 +7,7 @@ const productoData = {
     material: 'friselina',
     medidas: '40x50cm',
     url: 'https://www.todomascotasstore.com.ar/wp-content/uploads/2020/05/cucha-perro04.png',
+    precio: 550,
 }
 
 function ItemDetailContainer() {

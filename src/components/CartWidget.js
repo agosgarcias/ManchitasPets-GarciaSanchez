@@ -1,12 +1,10 @@
 import React from 'react';
-import logo from '../logo.png';
+import carrito from '../carrito.png'
 import "./style.css"
 
 
 export default function CartWidget(){
     return (
-        <>
-        <img src={logo} alt="logo" className="logo" />
-        </>
+        <img src={carrito} alt="cartWidget" className="cartWidget" />
     )
 } 

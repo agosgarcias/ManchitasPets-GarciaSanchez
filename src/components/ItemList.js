@@ -1,6 +1,5 @@
 import React from 'react';
 import Item from './Item';
-import ItemCount from './ItemCount';
 
 function ItemList({lista}){
 
@@ -9,7 +8,6 @@ function ItemList({lista}){
             {lista.map((item) =>
                 <div>
                 <Item {...item}/>
-                <ItemCount stock={item.stock}/>
                 </div>)}
 
         </div>

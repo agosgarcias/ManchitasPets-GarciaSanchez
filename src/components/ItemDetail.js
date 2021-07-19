@@ -1,6 +1,6 @@
 import React from 'react'
 
-function ItemDetail ({nombre, material, medidas, url, id}) {
+function ItemDetail ({nombre, material, medidas, url, id, precio}) {
     return (
         <div className="card">
             <div className="card-body">
@@ -8,6 +8,7 @@ function ItemDetail ({nombre, material, medidas, url, id}) {
                 <p>Material: {material} -
                    Medidas: {medidas}</p>
                 <img src={url} alt="beagle" className="FotoProducto" id={id} ></img>
+                <span>$ {precio}</span>
             </div>
         </div>
     )
