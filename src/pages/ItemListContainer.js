@@ -66,8 +66,8 @@ export default function ItemListContainer() {
 
     useEffect(() => {
         promiseFunction().then((data) => {
-        const filtroCategoria = data.filter(element => element.categoria === categoriaID);
-        setReferens(filtroCategoria);
+            const filtroCategoria = data.filter(element => element.categoria === categoriaID);
+            categoriaID ? setReferens(filtroCategoria) : setReferens(data);
     })
 }, [categoriaID])
 

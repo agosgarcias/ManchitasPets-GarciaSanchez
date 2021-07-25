@@ -8,6 +8,7 @@ const productoData = {
     medidas: '40x50cm',
     url: 'https://www.todomascotasstore.com.ar/wp-content/uploads/2020/05/cucha-perro04.png',
     precio: 550,
+    stock: 5,
 }
 
 function ItemDetailContainer() {

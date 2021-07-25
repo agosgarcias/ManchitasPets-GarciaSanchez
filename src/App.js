@@ -2,6 +2,7 @@ import './App.css';
 import NavBar from './components/NavBar'
 import ItemListContainer from './pages/ItemListContainer'
 import ItemDetailContainer from './pages/ItemDetailContainer';
+import Cart from './pages/Cart'
 import { CartContext } from './components/cartContext';
 import { useState } from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
@@ -26,6 +27,9 @@ function App() {
           </Route>
           <Route exact path="/item/:itemID">
             <ItemDetailContainer />
+          </Route>
+          <Route exact path="/cart">
+            <Cart />
           </Route>
         </Switch>
         </main>
